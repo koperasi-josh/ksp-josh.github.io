@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pengajuan Pinjaman - KSP Josh</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #C8D7D5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      background-color: #E5F1EF;
+      border-radius: 10px;
+      padding: 30px 50px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0E2230;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 10px 8px;
+      vertical-align: middle;
+    }
+    td:first-child {
+      font-weight: 600;
+      color: #0E2230;
+      width: 35%;
+    }
+    .input {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .btn-upload, .btn-submit {
+      background-color: #0E2230;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-upload:hover, .btn-submit:hover {
+      background-color: #163856;
+    }
+    .btn-submit {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 35px;
+      border-radius: 30px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Formulir Pengajuan Pinjaman Baru</h2>
+    <table>
+      <tr><td>Nama :</td><td><input type="text" id="nama" class="input" readonly></td></tr>
+      <tr><td>Alamat :</td><td><input type="text" id="alamat" class="input" readonly></td></tr>
+      <tr><td>No-HP :</td><td><input type="text" id="nohp" class="input" readonly></td></tr>
+      <tr><td>NIK :</td><td><input type="text" id="nik" class="input" readonly></td></tr>
+      <tr><td>Jumlah Pengajuan Pinjaman :</td><td><input type="text" id="jumlah" class="input" placeholder="Masukkan nominal pinjaman"></td></tr>
+      <tr><td>Lama Cicilan :</td><td><input type="text" id="cicilan" class="input" placeholder="Contoh: 10 Bulan"></td></tr>
+      <tr><td>Upload KTP :</td><td><button class="btn-upload">Foto KTP</button></td></tr>
+    </table>
+    <button class="btn-submit">Ajukan</button>
+  </div>
+
+  <script>
+    // Ambil data profil pengguna dari localStorage (diset dari halaman profil)
+    const profil = JSON.parse(localStorage.getItem('userProfile')) || {
+      nama: "Nama Pengguna",
+      alamat: "Alamat Pengguna",
+      nohp: "08xxxxxxxxxx",
+      nik: "1234567890123456"
+    };
+
+    // Isi otomatis ke form
+    document.getElementById('nama').value = profil.nama;
+    document.getElementById('alamat').value = profil.alamat;
+    document.getElementById('nohp').value = profil.nohp;
+    document.getElementById('nik').value = profil.nik;
+  </script>
+</body>
+</html>

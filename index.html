@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - KSP Josh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('Assets/img/image.png') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #0b2447;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 28px;
+      text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-container label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      color: #0b2447;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #0b2447;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to bottom, #4b6cb7, #182848);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background: linear-gradient(to bottom, #5579d8, #1c2f5a);
+    }
+
+    .links {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .links a {
+      color: #0b3d91;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #12518c;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-position: center;
+        background-size: cover;
+        padding: 20px;
+      }
+
+      .login-container {
+        width: 90%;
+        padding: 30px 25px;
+      }
+
+      .login-container h2 {
+        font-size: 24px;
+      }
+
+      .login-container input,
+      .login-container button {
+        font-size: 14px;
+      }
+
+      .links {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 25px 20px;
+      }
+
+      .login-container h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container" href="index.html">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Masukkan username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Masukkan password" required>
+
+      <button type="submit">Login</button>
+
+      <div class="links">
+        <p><a href="registrasi.html">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="registrasi.html">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      window.location.href = "homepage.html";
+    });
+  </script>
+</body>
+
+</html>

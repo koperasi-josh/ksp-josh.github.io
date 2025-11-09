@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pinjaman - Koperasi</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #C8D7D5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .header {
+      width: 90%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #0E2230;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      align-self: flex-start;
+      background: #0E2230;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.03);
+      background: #142F45;
+    }
+
+    .table-wrapper {
+      width: 90%;
+      max-width: 900px;
+      background: #E5F1EF;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    thead {
+      background: #8DA8B4;
+      color: #fff;
+    }
+
+    th,
+    td {
+      padding: 12px 8px;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #F3F9F8;
+    }
+
+    tbody tr:hover {
+      background: #DDE9E8;
+    }
+
+    .btn-formulir,
+    .btn-detail {
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .btn-formulir {
+      background: #26455A;
+    }
+
+    .btn-formulir:hover {
+      background: #1D3648;
+    }
+
+    .btn-detail {
+      background: #6DB7E3;
+    }
+
+    .btn-detail:hover {
+      background: #5CA8D7;
+    }
+
+    .actions-row {
+      width: 90%;
+      max-width: 900px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn-secondary {
+      background: #0E2230;
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .btn-secondary:hover {
+      transform: scale(1.03);
+      background: #152E44;
+    }
+
+    .btn-kembali {
+      background-color: #0E2230;
+      color: white;
+      border: none;
+      padding: 10px 40px;
+      border-radius: 40px;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .btn-kembali:hover {
+      transform: scale(1.03);
+      background-color: #152E44;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Pinjaman</h1>
+    <button class="btn-primary" onclick="window.location.href='pengajuan.html'">Ajukan Pinjaman Baru!</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Jumlah Pengajuan Pinjaman</th>
+          <th>Formulir Pengajuan</th>
+          <th>Status</th>
+          <th>Tanggal Jatuh Tempo</th>
+          <th>Jumlah Cicilan/Bulan</th>
+          <th>Detail Angsuran</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>28/05/2025</td>
+          <td>Rp. 2.000.000,-</td>
+          <td><button class="btn-formulir" onclick="showFormulir('Assets/img/formulir.png')">Lihat Formulir</button>
+          </td>
+          <td>Sukses</td>
+          <td>27/05/2026</td>
+          <td>Rp. 100.000,-</td>
+          <td><button class="btn-detail" onclick="window.location.href='detail-pinjaman.html?id=1'">Cek Detail</button>
+          </td>
+        </tr>
+        <tr>
+          <td>30/06/2025</td>
+          <td>Rp. 1.275.000,-</td>
+          <td><button class="btn-formulir" onclick="showFormulir('Assets/img/formulir.png')">Lihat Formulir</button>
+          </td>
+          <td>Dalam Proses</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>09/07/2025</td>
+          <td>Rp. 575.000,-</td>
+          <td><button class="btn-formulir" onclick="showFormulir('Assets/img/formulir.png')">Lihat Formulir</button>
+          </td>
+          <td>Ditolak</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions-row">
+    <button class="btn-secondary" onclick="window.print()">Cetak</button>
+    <a href="homepage.html" class="btn-kembali">Kembali</a>
+  </div>
+
+  <div id="modalFormulir" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="formulirImg" src="" alt="Formulir Pengajuan" />
+    </div>
+  </div>
+
+  <script>
+    function showFormulir(imgPath) {
+      document.getElementById("formulirImg").src = imgPath;
+      document.getElementById("modalFormulir").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("modalFormulir").style.display = "none";
+    }
+    window.onclick = function (event) {
+      const modal = document.getElementById("modalFormulir");
+      if (event.target === modal) modal.style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

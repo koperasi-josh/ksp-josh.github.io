@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Simpanan - KSP Josh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d7e9ec;
+      margin: 0;
+      padding: 0;
+    }
+
+    .simpan-section {
+      padding: 40px 60px;
+    }
+
+    .judul {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      color: #0b2447;
+      text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+    }
+
+    .saldo-container {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn-saldo,
+    .btn-isi {
+      background-color: #0c3d70;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-saldo:hover,
+    .btn-isi:hover {
+      background-color: #12518c;
+    }
+
+    .riwayat-title {
+      text-align: center;
+      color: #0b3d91;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    .table-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .table-container {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    .tabel-simpanan {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tabel-simpanan thead {
+      background-color: #54789c;
+      color: white;
+    }
+
+    .tabel-simpanan th,
+    .tabel-simpanan td {
+      padding: 12px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      word-break: break-word;
+    }
+
+    .tabel-simpanan tbody tr:nth-child(even) {
+      background-color: #f2f6f8;
+    }
+
+    .btn-bukti {
+      background-color: #0c3d70;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-bukti:hover {
+      background-color: #12518c;
+    }
+
+    .button-bottom {
+      display: flex;
+      justify-content: flex-end;
+      width: 90%;
+      margin-top: 25px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cetak,
+    .btn-kembali {
+      background-color: #0c3d70;
+      color: white;
+      border: none;
+      padding: 10px 40px;
+      border-radius: 40px;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .btn-cetak:hover,
+    .btn-kembali:hover {
+      background-color: #12518c;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .close {
+      background-color: #0c3d70;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .close:hover {
+      background-color: #12518c;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media print {
+      .button-bottom,
+      .saldo-container {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .judul {
+        text-shadow: none;
+        color: black;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .simpan-section {
+        padding: 20px;
+      }
+
+      .judul {
+        font-size: 24px;
+      }
+
+      .saldo-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .table-container {
+        width: 100%;
+      }
+
+      .tabel-simpanan th,
+      .tabel-simpanan td {
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .button-bottom {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-cetak,
+      .btn-kembali {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .judul {
+        font-size: 20px;
+      }
+
+      .btn-saldo,
+      .btn-isi {
+        font-size: 13px;
+        padding: 8px 16px;
+      }
+
+      .btn-bukti {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="simpan-section">
+    <h2 class="judul">Simpanan</h2>
+
+    <div class="saldo-container">
+      <button class="btn-saldo">Total Saldo : Rp.-</button>
+      <a href="isi-saldo.html" class="btn-isi">+ Isi Saldo</a>
+    </div>
+
+    <h3 class="riwayat-title">Riwayat Setoran</h3>
+
+    <div class="table-wrapper">
+      <div class="table-container">
+        <table class="tabel-simpanan">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Jumlah Setoran</th>
+              <th>Bukti Setoran</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>25/08/2025</td>
+              <td>Rp. 2.500.000,-</td>
+              <td><button class="btn-bukti" data-img="Assets/img/bukti1.jpg">Lihat Bukti</button></td>
+              <td>Sukses</td>
+            </tr>
+            <tr>
+              <td>20/09/2025</td>
+              <td>Rp. 2.100.000,-</td>
+              <td><button class="btn-bukti" data-img="Assets/img/bukti1.jpg">Lihat Bukti</button></td>
+              <td>Sukses</td>
+            </tr>
+            <tr>
+              <td>01/10/2025</td>
+              <td>Rp. 1.700.000,-</td>
+              <td><button class="btn-bukti" data-img="Assets/img/bukti1.jpg">Lihat Bukti</button></td>
+              <td>Sukses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="button-bottom">
+        <button class="btn-cetak" onclick="window.print()">Cetak</button>
+        <a href="homepage.html" class="btn-kembali">Kembali</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="modalBukti" class="modal">
+    <div class="modal-content">
+      <img id="gambarBukti" src="" alt="Bukti Setoran">
+      <button class="close" onclick="tutupModal()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modalBukti");
+    const imgBukti = document.getElementById("gambarBukti");
+    const buttons = document.querySelectorAll(".btn-bukti");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const imgSrc = btn.getAttribute("data-img");
+        imgBukti.src = imgSrc;
+        modal.style.display = "flex";
+      });
+    });
+
+    function tutupModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

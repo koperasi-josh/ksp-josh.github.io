@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KSP JOSH</title>
+  <link rel="icon" href="Assets/img/logo full koperasi.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="font-family: 'Poppins', sans-serif; scroll-behavior:smooth;">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold">
+        <img src="Assets/img/logo koperasi.png" alt="Logo KSP Josh" width="50" class="me-2 align-text-top">
+        KSP Josh
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-2"><a class="nav-link" href="#hero">Beranda</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#profil">Profil</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#layanan">Layanan</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+        </ul>
+        <form class="d-flex me-3 search-form">
+          <input class="form-control form-control-sm me-2" type="search" placeholder="Masukkan Kata Kunci...">
+          <button class="btn btn-outline-light btn-sm" type="submit">Cari</button>
+        </form>
+        <button onclick="window.location.href='index.html'" class="btn btn-danger btn-sm">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="vh-100 d-flex align-items-center position-relative text-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 hero-tagline">
+          <h1 class="fw-bold mb-3 fade-in">
+            Mengelola Keuangan Lebih Mudah Bersama <span style="color:#00ffff;">KSP Josh</span>
+          </h1>
+          <p class="fade-in-delay">
+            Solusi keuangan digital untuk membantu Anda mengatur simpanan dan pinjaman secara mudah,
+            aman, dan transparan.
+          </p>
+
+          <button id="btnAtur" class="btn btn-primary btn-lg mt-3">
+            Atur Keuangan Anda
+          </button>
+        </div>
+      </div>
+      <img src="Assets/img/koperasi.png" alt="Ilustrasi Koperasi" class="hero-img floating">
+    </div>
+  </section>
+
+  <!-- PROFIL -->
+  <section id="profil">
+    <h2>Data Profil</h2>
+    <p class="sub">Anggota Koperasi Simpan Pinjam Josh</p>
+    <div class="profil-container">
+      <div class="profil-box">
+        <img src="Assets/img/user.jpeg" alt="Foto Profil" id="fotoProfil" />
+        <div class="profil-info">
+          <h3>Identitas</h3>
+          <p><b>Nama Lengkap:</b> Janice Kaori</p>
+          <p><b>Jenis Kelamin:</b> Perempuan</p>
+          <p><b>Alamat:</b> Jalan Padjajaran</p>
+
+          <h3 style="margin-top:15px;">Kontak</h3>
+          <p><b>Email:</b> janicekaori@gmail.com</p>
+          <p><b>No. Handphone:</b> 081234567899</p>
+
+          <!-- Tombol Edit Profil -->
+          <div style="margin-top: 20px;">
+            <button onclick="window.location.href='edit-profil.html'" class="btn btn-primary btn-sm"
+              style="background-color:#132d41; border:none;">
+              Edit Profil
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYANAN -->
+  <section id="layanan" class="layanan-section">
+    <h2 class="judul">Layanan Kami</h2>
+    <p class="deskripsi">
+      Kami hadir membantu Anda mengelola keuangan<br>
+      dengan bijak dan aman, seperti:
+    </p>
+    <div class="container-layanan">
+      <div class="card-layanan">
+        <h3>Simpanan Aman</h3>
+        <img src="Assets/img/simpan.png" width="70" alt="Simpan">
+        <div class="isi">
+          Menabung dengan sistem digital terpercaya yang menjamin keamanan dana Anda.
+        </div>
+        <a href="simpanan.html" class="link">Klik untuk melihat aktivitas Simpanan</a>
+      </div>
+
+      <div class="card-layanan">
+        <h3>Pinjaman Cepat</h3>
+        <img src="Assets/img/pinjam.png" width="70" alt="Pinjam">
+        <div class="isi">
+          Dapatkan pinjaman dana dengan proses mudah dan bunga ringan sesuai kebutuhan Anda.
+        </div>
+        <a href="pinjaman.html" class="link">Klik untuk melihat aktivitas Pinjaman</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section id="tentang">
+    <div class="tentang-box">
+      <h2>Tentang KSP Josh</h2>
+      <p>
+        KSP JOSH hadir sebagai solusi keuangan berbasis digital untuk membantu anggota
+        dalam mengelola simpanan dan pinjaman dengan mudah, aman, serta transparan.
+        Kami berkomitmen memberikan pelayanan terbaik untuk mendukung kesejahteraan bersama.
+      </p>
+    </div>
+    <div class="kontak-box">
+      <h3>Kontak Kami</h3>
+      <p>
+        Email : info@kspjosh.co.id<br>
+        Telepon : (021) 555-2025 / 0812-3456-7899<br>
+        Alamat Kantor : Jl. Kemajuan No. 25, Jakarta Selatan<br>
+        Indonesia
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Koperasi Simpan Pinjam Josh. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    document.getElementById("btnAtur").addEventListener("click", function () {
+      const layananSection = document.getElementById("layanan");
+      layananSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+
+    const fotoTersimpan = localStorage.getItem("fotoProfil");
+    if (fotoTersimpan) {
+      document.getElementById("fotoProfil").src = fotoTersimpan;
+    }
+
+    const dataProfil = JSON.parse(localStorage.getItem("dataProfil"));
+    if (dataProfil) {
+      const container = document.querySelector(".profil-info");
+      container.innerHTML = `
+        <h3>Identitas</h3>
+        <p><b>Nama Lengkap:</b> ${dataProfil.nama}</p>
+        <p><b>Jenis Kelamin:</b> ${dataProfil.jk}</p>
+        <p><b>Alamat:</b> ${dataProfil.alamat}</p>
+        <h3 style="margin-top:15px;">Kontak</h3>
+        <p><b>Email:</b> ${dataProfil.email}</p>
+        <p><b>No. Handphone:</b> ${dataProfil.hp}</p>
+        <div style="margin-top: 20px;">
+          <button onclick="window.location.href='edit-profil.html'"
+                  class="btn btn-primary btn-sm"
+                  style="background-color:#132d41; border:none;">
+            Edit Profil
+          </button>
+        </div>
+      `;
+    }
+  </script>
+</body>
+
+</html>
